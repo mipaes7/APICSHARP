@@ -39,13 +39,12 @@ namespace webapi.Features.Pizzas
                 foreach (var req in request.Ingredients)
                 {
                     var ingredient = Ingredient.Create(req.Name, req.Cost);
-
                     repositoryIngredient.Add(ingredient);
-
                     ingredients.Add(ingredient);
                 }
 
                 var pizza = Pizza.Create(request.Name, request.Description, request.Url, ingredients);
+                repositoryPizza.Commit();
                 repositoryPizza.Add(pizza);
 
                 var response = new PizzaResponse(

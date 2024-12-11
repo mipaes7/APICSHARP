@@ -31,3 +31,8 @@ C:\Users\MPardal\Desktop\apiC#\obj\Debug\net8.0\refint\apiC#.dll
 C:\Users\MPardal\Desktop\apiC#\obj\Debug\net8.0\apiC#.pdb
 C:\Users\MPardal\Desktop\apiC#\obj\Debug\net8.0\apiC#.genruntimeconfig.cache
 C:\Users\MPardal\Desktop\apiC#\obj\Debug\net8.0\ref\apiC#.dll
+C:\Users\MPardal\Desktop\apiC#\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\MPardal\Desktop\apiC#\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\MPardal\Desktop\apiC#\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\MPardal\Desktop\apiC#\obj\Debug\net8.0\apiC#.sourcelink.json
+C:\Users\MPardal\Desktop\apiC#\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll

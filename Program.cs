@@ -1,6 +1,8 @@
 using webapi.core.exceptions;
 using webapi.core.IFeatureModule;
 using webapi.core.ioc;
+using Microsoft.EntityFrameworkCore;
+using webapi.infraestructura;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,8 @@ builder.Services.AddControllers();
 builder.Services.AddInjectables();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
+builder.Services.AddDbContext<PizzaDbContext>(options =>
+    options.UseInMemoryDatabase("PizzaDb"));
 
 // builder.Services.AddScoped<IRepository<Ingredient, Guid>, RepositoryIngredient>();
 // builder.Services.AddScoped<IGet<Ingredient, Guid>, RepositoryIngredient>();
@@ -20,6 +24,7 @@ builder.Services.AddProblemDetails();
 // builder.Services.AddScoped<IRemove<Ingredient, Guid>, RepositoryIngredient>();
 
 var app = builder.Build();
+
 
 app.UseHttpsRedirection();
 

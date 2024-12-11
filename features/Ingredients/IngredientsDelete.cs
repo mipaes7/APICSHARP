@@ -16,6 +16,7 @@ namespace webapi.Features.Ingredients
             {
                 var ingredient = repository.Get(id);
                 repository.Remove(ingredient);
+                repository.Commit();
                 return Results.NoContent();
             });
         }

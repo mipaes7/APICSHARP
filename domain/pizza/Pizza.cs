@@ -3,7 +3,7 @@ using System.Reflection.Metadata;
 using webapi.core.entitybase;
 
 namespace Domain.Pizzas;
-class Pizza : EntityBase
+public class Pizza : EntityBase
 {
 
     private const decimal PROFIT = 1.2M;
@@ -12,14 +12,12 @@ class Pizza : EntityBase
     public string Url { get; set; }
     public decimal Price => ingredients.Sum(x => x.Cost) * PROFIT;
     public ReadOnlyCollection<Ingredient> Ingredients => new([.. ingredients]);
-    private readonly ISet<Ingredient> ingredients = new HashSet<Ingredient>();
-    protected Pizza(Guid id, string name, string description, string url, ISet<Ingredient> ingredients) : base(id)
+    private ISet<Ingredient> ingredients = new HashSet<Ingredient>();
+    protected Pizza(Guid id, string name, string description, string url) : base(id)
     {
         Name = name;
         Description = description;
         Url = url;
-        this.ingredients = ingredients;
-
     }
     public void Update(string name, string description, string url)
     {
@@ -38,12 +36,13 @@ class Pizza : EntityBase
 
     public static Pizza Create(string name, string description, string url, IEnumerable<Ingredient> ingredients)
     {
-        return new Pizza(
+        var pizza = new Pizza(
                 Guid.NewGuid(),
                 name,
                 description,
-                url,
-                ingredients.ToHashSet()
+                url
                 );
+        pizza.ingredients = ingredients.ToHashSet();
+        return pizza;
     }
 }

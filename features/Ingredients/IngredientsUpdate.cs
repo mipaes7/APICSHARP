@@ -21,6 +21,7 @@ namespace webapi.Features.Ingredients
                 var ingredient = repository.Get(id);
                 ingredient.Update(request.Name, request.Cost);
                 repository.Update(ingredient);
+                repository.Commit();
                 return Results.NoContent();
             });
         }
